@@ -21,6 +21,10 @@ class ServerTest extends TestCase
         // Server is immediately started
         $this->assertTrue(PortChecker::isPortOpen('localhost', $server->getPort()));
 
+        var_dump($server->getURL());
+        $content = file_get_contents($server->getURL());
+        var_dump($content);
+        
         // Test a "stable" URL available via the framework module, that isn't tied to an environment type
         $content = file_get_contents($server->getURL() . 'Security/login');
 
